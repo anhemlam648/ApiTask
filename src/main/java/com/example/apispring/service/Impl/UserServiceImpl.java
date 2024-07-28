@@ -36,13 +36,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RoleRepository roleRepository;
-//    @Override
-//    public boolean createUserDto(UserDto userDto) {
-//        User user = UserMapper.mapToUser(userDto);
-//        user.setPassword(this.passwordEncoder.encode(userDto.getPassword()));
-//        User usersave = userRepository.save(user);
-//        return usersave != null;
-//    }
     @Override
     public boolean createUserDto(UserDto userDto) {
         User user = UserMapper.mapToUser(userDto);
@@ -53,13 +46,30 @@ public class UserServiceImpl implements UserService {
             if(defaulRole != null){
                 usersave.getRoles().add(defaulRole);
                 userRepository.save(usersave);
-            }else{
+            }else {
                 return false;
             }
             return true;
         }
         return false;
     }
+//    @Override
+//    public boolean createUserDto(UserDto userDto) {
+//        User user = UserMapper.mapToUser(userDto);
+//        user.setPassword(this.passwordEncoder.encode(userDto.getPassword()));
+//        User usersave = userRepository.save(user);
+//        if(usersave != null){
+//            Role defaulRole = roleRepository.findById(2L).orElse(null);
+//            if(defaulRole != null){
+//                usersave.getRoles().add(defaulRole);
+//                userRepository.save(usersave);
+//            }else{
+//                return false;
+//            }
+//            return true;
+//        }
+//        return false;
+//    }
 
     @Override
     public LoginMesage LoginUser(LoginDto loginDto) {

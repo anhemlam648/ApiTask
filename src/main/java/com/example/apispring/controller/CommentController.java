@@ -28,7 +28,7 @@ public class CommentController {
 //            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(userId);
 //        }
 //        return userId;
-        boolean isSuccess = commentService.createCommentDto(commentDto);
+            boolean isSuccess = commentService.createCommentDto(commentDto);
         System.out.printf("GỌI" + isSuccess);
         if (isSuccess) {
             return ResponseEntity.ok().body(isSuccess);
